@@ -146,7 +146,7 @@ def main():
         elif op == "7":
             _armar_rompecabezas_interactivo()
         elif op == "0":
-            print("Adios")
+            print("¡Hasta luego! 👋")
             break
         else:
             print("Opcion invalida.")
