@@ -1,0 +1,226 @@
+{
+  "puzzle": {
+    "id": "puzzle_monsters",
+    "nombre": "Monsters Creatures",
+    "tipo": "LIBRE",
+    "marca": "Desconocida",
+    "material": "Madera/Foam",
+    "tema": "Criaturas fantasticas",
+    "tiene_bandeja": false
+  },
+  "clusters": [
+    {
+      "id": "cluster_monsters_A",
+      "puzzle_id": "puzzle_monsters",
+      "nombre_cluster": "Criatura morada",
+      "total_piezas": 3,
+      "piezas": [
+        {
+          "id": "mo_1",
+          "cluster_id": "cluster_monsters_A",
+          "numero_etiqueta": 1,
+          "descripcion_visual": "Parte superior cabeza morada redonda",
+          "disponible": true,
+          "fila": null,
+          "columna": null
+        },
+        {
+          "id": "mo_2",
+          "cluster_id": "cluster_monsters_A",
+          "numero_etiqueta": 2,
+          "descripcion_visual": "Parte inferior cabeza morada redonda",
+          "disponible": true,
+          "fila": null,
+          "columna": null
+        },
+        {
+          "id": "mo_3",
+          "cluster_id": "cluster_monsters_A",
+          "numero_etiqueta": 3,
+          "descripcion_visual": "Lengua/cola roja curva",
+          "disponible": true,
+          "fila": null,
+          "columna": null
+        }
+      ]
+    },
+    {
+      "id": "cluster_monsters_B",
+      "puzzle_id": "puzzle_monsters",
+      "nombre_cluster": "Monstruo verde-rojo",
+      "total_piezas": 4,
+      "piezas": [
+        {
+          "id": "mo_4",
+          "cluster_id": "cluster_monsters_B",
+          "numero_etiqueta": 4,
+          "descripcion_visual": "Cuerpo superior verde con brazos y ojos",
+          "disponible": true,
+          "fila": null,
+          "columna": null
+        },
+        {
+          "id": "mo_5",
+          "cluster_id": "cluster_monsters_B",
+          "numero_etiqueta": 5,
+          "descripcion_visual": "Cuerpo inferior rojo",
+          "disponible": true,
+          "fila": null,
+          "columna": null
+        },
+        {
+          "id": "mo_6",
+          "cluster_id": "cluster_monsters_B",
+          "numero_etiqueta": 6,
+          "descripcion_visual": "Pierna izquierda azul",
+          "disponible": true,
+          "fila": null,
+          "columna": null
+        },
+        {
+          "id": "mo_7",
+          "cluster_id": "cluster_monsters_B",
+          "numero_etiqueta": 7,
+          "descripcion_visual": "Pierna derecha azul",
+          "disponible": true,
+          "fila": null,
+          "columna": null
+        }
+      ]
+    },
+    {
+      "id": "cluster_monsters_C",
+      "puzzle_id": "puzzle_monsters",
+      "nombre_cluster": "Rana verde",
+      "total_piezas": 6,
+      "piezas": [
+        {
+          "id": "mo_8",
+          "cluster_id": "cluster_monsters_C",
+          "numero_etiqueta": 8,
+          "descripcion_visual": "Ojo izquierdo blanco/negro",
+          "disponible": true,
+          "fila": null,
+          "columna": null
+        },
+        {
+          "id": "mo_9",
+          "cluster_id": "cluster_monsters_C",
+          "numero_etiqueta": 9,
+          "descripcion_visual": "Ojo derecho blanco/negro",
+          "disponible": true,
+          "fila": null,
+          "columna": null
+        },
+        {
+          "id": "mo_10",
+          "cluster_id": "cluster_monsters_C",
+          "numero_etiqueta": 10,
+          "descripcion_visual": "Cabeza verde de la rana",
+          "disponible": true,
+          "fila": null,
+          "columna": null
+        },
+        {
+          "id": "mo_11",
+          "cluster_id": "cluster_monsters_C",
+          "numero_etiqueta": 11,
+          "descripcion_visual": "Cuerpo central morado/azul",
+          "disponible": true,
+          "fila": null,
+          "columna": null
+        },
+        {
+          "id": "mo_12",
+          "cluster_id": "cluster_monsters_C",
+          "numero_etiqueta": 12,
+          "descripcion_visual": "Pata/brazo izquierdo verde",
+          "disponible": true,
+          "fila": null,
+          "columna": null
+        },
+        {
+          "id": "mo_13",
+          "cluster_id": "cluster_monsters_C",
+          "numero_etiqueta": 13,
+          "descripcion_visual": "Pata/brazo derecho verde",
+          "disponible": true,
+          "fila": null,
+          "columna": null
+        }
+      ]
+    }
+  ],
+  "conexiones": [
+    {
+      "origen": "mo_1",
+      "destino": "mo_2",
+      "desc_desde": "parte inferior de la cabeza superior",
+      "desc_hacia": "parte superior de la cabeza inferior",
+      "tipo": "ENCAJE"
+    },
+    {
+      "origen": "mo_2",
+      "destino": "mo_3",
+      "desc_desde": "parte inferior de la cabeza",
+      "desc_hacia": "extremo superior de la lengua",
+      "tipo": "ENCAJE"
+    },
+    {
+      "origen": "mo_4",
+      "destino": "mo_5",
+      "desc_desde": "parte inferior del cuerpo verde",
+      "desc_hacia": "parte superior del cuerpo rojo",
+      "tipo": "ENCAJE"
+    },
+    {
+      "origen": "mo_5",
+      "destino": "mo_6",
+      "desc_desde": "extremo inferior izquierdo del cuerpo",
+      "desc_hacia": "parte superior de la pierna izquierda",
+      "tipo": "ENCAJE"
+    },
+    {
+      "origen": "mo_5",
+      "destino": "mo_7",
+      "desc_desde": "extremo inferior derecho del cuerpo",
+      "desc_hacia": "parte superior de la pierna derecha",
+      "tipo": "ENCAJE"
+    },
+    {
+      "origen": "mo_8",
+      "destino": "mo_10",
+      "desc_desde": "base del ojo izquierdo",
+      "desc_hacia": "ranura ojo izquierdo de la cabeza",
+      "tipo": "ENCAJE"
+    },
+    {
+      "origen": "mo_9",
+      "destino": "mo_10",
+      "desc_desde": "base del ojo derecho",
+      "desc_hacia": "ranura ojo derecho de la cabeza",
+      "tipo": "ENCAJE"
+    },
+    {
+      "origen": "mo_10",
+      "destino": "mo_11",
+      "desc_desde": "parte inferior de la cabeza",
+      "desc_hacia": "parte superior del cuerpo",
+      "tipo": "ENCAJE"
+    },
+    {
+      "origen": "mo_11",
+      "destino": "mo_12",
+      "desc_desde": "lado izquierdo del cuerpo",
+      "desc_hacia": "extremo del brazo/pata izquierda",
+      "tipo": "ENCAJE"
+    },
+    {
+      "origen": "mo_11",
+      "destino": "mo_13",
+      "desc_desde": "lado derecho del cuerpo",
+      "desc_hacia": "extremo del brazo/pata derecha",
+      "tipo": "ENCAJE"
+    }
+  ]
+}

@@ -1,0 +1,190 @@
+{
+  "puzzle": {
+    "id": "puzzle_excavator",
+    "nombre": "Excavator",
+    "tipo": "LIBRE",
+    "marca": "Desconocida",
+    "material": "Madera/Foam",
+    "tema": "Vehiculos de construccion",
+    "tiene_bandeja": false
+  },
+  "clusters": [
+    {
+      "id": "cluster_excavator_1",
+      "puzzle_id": "puzzle_excavator",
+      "nombre_cluster": "Excavadora completa",
+      "total_piezas": 10,
+      "piezas": [
+        {
+          "id": "ex_1",
+          "cluster_id": "cluster_excavator_1",
+          "numero_etiqueta": 1,
+          "descripcion_visual": "Pala/cuchara turquesa",
+          "disponible": true,
+          "fila": null,
+          "columna": null
+        },
+        {
+          "id": "ex_2",
+          "cluster_id": "cluster_excavator_1",
+          "numero_etiqueta": 2,
+          "descripcion_visual": "Brazo superior naranja con rueda negra",
+          "disponible": true,
+          "fila": null,
+          "columna": null
+        },
+        {
+          "id": "ex_3",
+          "cluster_id": "cluster_excavator_1",
+          "numero_etiqueta": 3,
+          "descripcion_visual": "Articulacion del brazo naranja",
+          "disponible": true,
+          "fila": null,
+          "columna": null
+        },
+        {
+          "id": "ex_4",
+          "cluster_id": "cluster_excavator_1",
+          "numero_etiqueta": 4,
+          "descripcion_visual": "Cabina izquierda amarilla con tigre",
+          "disponible": true,
+          "fila": null,
+          "columna": null
+        },
+        {
+          "id": "ex_5",
+          "cluster_id": "cluster_excavator_1",
+          "numero_etiqueta": 5,
+          "descripcion_visual": "Cabina derecha amarilla con ventana",
+          "disponible": true,
+          "fila": null,
+          "columna": null
+        },
+        {
+          "id": "ex_6",
+          "cluster_id": "cluster_excavator_1",
+          "numero_etiqueta": 6,
+          "descripcion_visual": "Cuerpo inferior izquierdo rojo con texto EXCAVATOR",
+          "disponible": true,
+          "fila": null,
+          "columna": null
+        },
+        {
+          "id": "ex_7",
+          "cluster_id": "cluster_excavator_1",
+          "numero_etiqueta": 7,
+          "descripcion_visual": "Cuerpo inferior derecho rojo con estrellas",
+          "disponible": true,
+          "fila": null,
+          "columna": null
+        },
+        {
+          "id": "ex_8",
+          "cluster_id": "cluster_excavator_1",
+          "numero_etiqueta": 8,
+          "descripcion_visual": "Panel lateral derecho naranja/motor",
+          "disponible": true,
+          "fila": null,
+          "columna": null
+        },
+        {
+          "id": "ex_9",
+          "cluster_id": "cluster_excavator_1",
+          "numero_etiqueta": 9,
+          "descripcion_visual": "Oruga izquierda inferior",
+          "disponible": true,
+          "fila": null,
+          "columna": null
+        },
+        {
+          "id": "ex_10",
+          "cluster_id": "cluster_excavator_1",
+          "numero_etiqueta": 10,
+          "descripcion_visual": "Oruga derecha inferior",
+          "disponible": true,
+          "fila": null,
+          "columna": null
+        }
+      ]
+    }
+  ],
+  "conexiones": [
+    {
+      "origen": "ex_1",
+      "destino": "ex_2",
+      "desc_desde": "extremo superior de la pala",
+      "desc_hacia": "extremo inferior del brazo",
+      "tipo": "ENCAJE"
+    },
+    {
+      "origen": "ex_2",
+      "destino": "ex_3",
+      "desc_desde": "lado inferior del brazo",
+      "desc_hacia": "extremo superior de la articulacion",
+      "tipo": "ENCAJE"
+    },
+    {
+      "origen": "ex_3",
+      "destino": "ex_4",
+      "desc_desde": "extremo derecho de la articulacion",
+      "desc_hacia": "lado izquierdo de la cabina",
+      "tipo": "ENCAJE"
+    },
+    {
+      "origen": "ex_4",
+      "destino": "ex_5",
+      "desc_desde": "lado derecho de la cabina izquierda",
+      "desc_hacia": "lado izquierdo de la cabina derecha",
+      "tipo": "ENCAJE"
+    },
+    {
+      "origen": "ex_5",
+      "destino": "ex_8",
+      "desc_desde": "lado derecho de la cabina derecha",
+      "desc_hacia": "parte superior del panel lateral",
+      "tipo": "ENCAJE"
+    },
+    {
+      "origen": "ex_4",
+      "destino": "ex_6",
+      "desc_desde": "parte inferior de la cabina izquierda",
+      "desc_hacia": "parte superior del cuerpo izquierdo",
+      "tipo": "ENCAJE"
+    },
+    {
+      "origen": "ex_6",
+      "destino": "ex_7",
+      "desc_desde": "lado derecho del cuerpo izquierdo",
+      "desc_hacia": "lado izquierdo del cuerpo derecho",
+      "tipo": "ENCAJE"
+    },
+    {
+      "origen": "ex_7",
+      "destino": "ex_8",
+      "desc_desde": "parte superior del cuerpo derecho",
+      "desc_hacia": "parte inferior del panel lateral",
+      "tipo": "ENCAJE"
+    },
+    {
+      "origen": "ex_6",
+      "destino": "ex_9",
+      "desc_desde": "parte inferior izquierda del cuerpo",
+      "desc_hacia": "parte superior de la oruga izquierda",
+      "tipo": "ENCAJE"
+    },
+    {
+      "origen": "ex_7",
+      "destino": "ex_10",
+      "desc_desde": "parte inferior derecha del cuerpo",
+      "desc_hacia": "parte superior de la oruga derecha",
+      "tipo": "ENCAJE"
+    },
+    {
+      "origen": "ex_9",
+      "destino": "ex_10",
+      "desc_desde": "lado derecho de la oruga izquierda",
+      "desc_hacia": "lado izquierdo de la oruga derecha",
+      "tipo": "ENCAJE"
+    }
+  ]
+}

@@ -1,0 +1,176 @@
+{
+  "puzzle": {
+    "id": "puzzle_plesiosaurs",
+    "nombre": "Plesiosaurs",
+    "tipo": "LIBRE",
+    "marca": "Desconocida",
+    "material": "Madera",
+    "tema": "Dinosaurio acuatico",
+    "tiene_bandeja": true
+  },
+  "clusters": [
+    {
+      "id": "cluster_plesiosaurs_1",
+      "puzzle_id": "puzzle_plesiosaurs",
+      "nombre_cluster": "Plesiosaurio completo",
+      "total_piezas": 10,
+      "piezas": [
+        {
+          "id": "pl_1",
+          "cluster_id": "cluster_plesiosaurs_1",
+          "numero_etiqueta": 1,
+          "descripcion_visual": "Cabeza con ojos (arriba a la derecha)",
+          "disponible": true,
+          "fila": null,
+          "columna": null
+        },
+        {
+          "id": "pl_2",
+          "cluster_id": "cluster_plesiosaurs_1",
+          "numero_etiqueta": 2,
+          "descripcion_visual": "Cuello superior",
+          "disponible": true,
+          "fila": null,
+          "columna": null
+        },
+        {
+          "id": "pl_3",
+          "cluster_id": "cluster_plesiosaurs_1",
+          "numero_etiqueta": 3,
+          "descripcion_visual": "Cuello inferior (base del cuello)",
+          "disponible": true,
+          "fila": null,
+          "columna": null
+        },
+        {
+          "id": "pl_4",
+          "cluster_id": "cluster_plesiosaurs_1",
+          "numero_etiqueta": 4,
+          "descripcion_visual": "Cuerpo extremo derecho (grupa)",
+          "disponible": true,
+          "fila": null,
+          "columna": null
+        },
+        {
+          "id": "pl_5",
+          "cluster_id": "cluster_plesiosaurs_1",
+          "numero_etiqueta": 5,
+          "descripcion_visual": "Cuerpo centro-derecha (lomo)",
+          "disponible": true,
+          "fila": null,
+          "columna": null
+        },
+        {
+          "id": "pl_6",
+          "cluster_id": "cluster_plesiosaurs_1",
+          "numero_etiqueta": 6,
+          "descripcion_visual": "Cuerpo centro",
+          "disponible": true,
+          "fila": null,
+          "columna": null
+        },
+        {
+          "id": "pl_7",
+          "cluster_id": "cluster_plesiosaurs_1",
+          "numero_etiqueta": 7,
+          "descripcion_visual": "Cuerpo centro-izquierda (vientre)",
+          "disponible": true,
+          "fila": null,
+          "columna": null
+        },
+        {
+          "id": "pl_8",
+          "cluster_id": "cluster_plesiosaurs_1",
+          "numero_etiqueta": 8,
+          "descripcion_visual": "Cuerpo izquierdo (pecho)",
+          "disponible": true,
+          "fila": null,
+          "columna": null
+        },
+        {
+          "id": "pl_9",
+          "cluster_id": "cluster_plesiosaurs_1",
+          "numero_etiqueta": 9,
+          "descripcion_visual": "Pata/aleta inferior izquierda",
+          "disponible": true,
+          "fila": null,
+          "columna": null
+        },
+        {
+          "id": "pl_10",
+          "cluster_id": "cluster_plesiosaurs_1",
+          "numero_etiqueta": 10,
+          "descripcion_visual": "Cola superior izquierda (curva)",
+          "disponible": true,
+          "fila": null,
+          "columna": null
+        }
+      ]
+    }
+  ],
+  "conexiones": [
+    {
+      "origen": "pl_1",
+      "destino": "pl_2",
+      "desc_desde": "base de la cabeza",
+      "desc_hacia": "extremo superior del cuello",
+      "tipo": "ENCAJE"
+    },
+    {
+      "origen": "pl_2",
+      "destino": "pl_3",
+      "desc_desde": "parte inferior del cuello superior",
+      "desc_hacia": "parte superior del cuello inferior",
+      "tipo": "ENCAJE"
+    },
+    {
+      "origen": "pl_3",
+      "destino": "pl_5",
+      "desc_desde": "base del cuello",
+      "desc_hacia": "parte superior derecha del lomo",
+      "tipo": "ENCAJE"
+    },
+    {
+      "origen": "pl_5",
+      "destino": "pl_4",
+      "desc_desde": "lado derecho del lomo",
+      "desc_hacia": "lado izquierdo de la grupa",
+      "tipo": "ENCAJE"
+    },
+    {
+      "origen": "pl_5",
+      "destino": "pl_6",
+      "desc_desde": "lado izquierdo del lomo",
+      "desc_hacia": "lado derecho del cuerpo centro",
+      "tipo": "ENCAJE"
+    },
+    {
+      "origen": "pl_6",
+      "destino": "pl_7",
+      "desc_desde": "lado izquierdo del cuerpo centro",
+      "desc_hacia": "lado derecho del vientre",
+      "tipo": "ENCAJE"
+    },
+    {
+      "origen": "pl_7",
+      "destino": "pl_8",
+      "desc_desde": "lado izquierdo del vientre",
+      "desc_hacia": "lado derecho del pecho",
+      "tipo": "ENCAJE"
+    },
+    {
+      "origen": "pl_8",
+      "destino": "pl_10",
+      "desc_desde": "parte superior del pecho",
+      "desc_hacia": "base de la cola",
+      "tipo": "ENCAJE"
+    },
+    {
+      "origen": "pl_8",
+      "destino": "pl_9",
+      "desc_desde": "parte inferior del pecho",
+      "desc_hacia": "parte superior de la pata",
+      "tipo": "ENCAJE"
+    }
+  ]
+}

@@ -1,0 +1,162 @@
+{
+  "puzzle": {
+    "id": "puzzle_dolphins",
+    "nombre": "Dolphins Family",
+    "tipo": "BANDEJA",
+    "marca": "Desconocida",
+    "material": "Madera",
+    "tema": "Animales marinos",
+    "tiene_bandeja": true
+  },
+  "clusters": [
+    {
+      "id": "cluster_dolphins_turquesa",
+      "puzzle_id": "puzzle_dolphins",
+      "nombre_cluster": "Delfin turquesa",
+      "total_piezas": 3,
+      "piezas": [
+        {
+          "id": "do_t1",
+          "cluster_id": "cluster_dolphins_turquesa",
+          "numero_etiqueta": null,
+          "descripcion_visual": "Cabeza delfin turquesa",
+          "disponible": true,
+          "fila": null,
+          "columna": null
+        },
+        {
+          "id": "do_t2",
+          "cluster_id": "cluster_dolphins_turquesa",
+          "numero_etiqueta": null,
+          "descripcion_visual": "Cuerpo delfin turquesa",
+          "disponible": true,
+          "fila": null,
+          "columna": null
+        },
+        {
+          "id": "do_t3",
+          "cluster_id": "cluster_dolphins_turquesa",
+          "numero_etiqueta": null,
+          "descripcion_visual": "Cola delfin turquesa",
+          "disponible": true,
+          "fila": null,
+          "columna": null
+        }
+      ]
+    },
+    {
+      "id": "cluster_dolphins_rosa",
+      "puzzle_id": "puzzle_dolphins",
+      "nombre_cluster": "Delfin rosa",
+      "total_piezas": 3,
+      "piezas": [
+        {
+          "id": "do_r1",
+          "cluster_id": "cluster_dolphins_rosa",
+          "numero_etiqueta": null,
+          "descripcion_visual": "Cabeza delfin rosa",
+          "disponible": true,
+          "fila": null,
+          "columna": null
+        },
+        {
+          "id": "do_r2",
+          "cluster_id": "cluster_dolphins_rosa",
+          "numero_etiqueta": null,
+          "descripcion_visual": "Cuerpo delfin rosa",
+          "disponible": true,
+          "fila": null,
+          "columna": null
+        },
+        {
+          "id": "do_r3",
+          "cluster_id": "cluster_dolphins_rosa",
+          "numero_etiqueta": null,
+          "descripcion_visual": "Cola delfin rosa",
+          "disponible": true,
+          "fila": null,
+          "columna": null
+        }
+      ]
+    },
+    {
+      "id": "cluster_dolphins_ballena",
+      "puzzle_id": "puzzle_dolphins",
+      "nombre_cluster": "Ballena azul",
+      "total_piezas": 3,
+      "piezas": [
+        {
+          "id": "do_b1",
+          "cluster_id": "cluster_dolphins_ballena",
+          "numero_etiqueta": null,
+          "descripcion_visual": "Cabeza ballena azul",
+          "disponible": true,
+          "fila": null,
+          "columna": null
+        },
+        {
+          "id": "do_b2",
+          "cluster_id": "cluster_dolphins_ballena",
+          "numero_etiqueta": null,
+          "descripcion_visual": "Cuerpo ballena azul",
+          "disponible": true,
+          "fila": null,
+          "columna": null
+        },
+        {
+          "id": "do_b3",
+          "cluster_id": "cluster_dolphins_ballena",
+          "numero_etiqueta": null,
+          "descripcion_visual": "Cola ballena azul",
+          "disponible": true,
+          "fila": null,
+          "columna": null
+        }
+      ]
+    }
+  ],
+  "conexiones": [
+    {
+      "origen": "do_t1",
+      "destino": "do_t2",
+      "desc_desde": "parte trasera de la cabeza turquesa",
+      "desc_hacia": "parte frontal del cuerpo turquesa",
+      "tipo": "ENCAJE"
+    },
+    {
+      "origen": "do_t2",
+      "destino": "do_t3",
+      "desc_desde": "parte trasera del cuerpo turquesa",
+      "desc_hacia": "base de la cola turquesa",
+      "tipo": "ENCAJE"
+    },
+    {
+      "origen": "do_r1",
+      "destino": "do_r2",
+      "desc_desde": "parte trasera de la cabeza rosa",
+      "desc_hacia": "parte frontal del cuerpo rosa",
+      "tipo": "ENCAJE"
+    },
+    {
+      "origen": "do_r2",
+      "destino": "do_r3",
+      "desc_desde": "parte trasera del cuerpo rosa",
+      "desc_hacia": "base de la cola rosa",
+      "tipo": "ENCAJE"
+    },
+    {
+      "origen": "do_b1",
+      "destino": "do_b2",
+      "desc_desde": "parte trasera de la cabeza de la ballena",
+      "desc_hacia": "parte frontal del cuerpo de la ballena",
+      "tipo": "ENCAJE"
+    },
+    {
+      "origen": "do_b2",
+      "destino": "do_b3",
+      "desc_desde": "parte trasera del cuerpo de la ballena",
+      "desc_hacia": "base de la cola de la ballena",
+      "tipo": "ENCAJE"
+    }
+  ]
+}
