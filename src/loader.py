@@ -1,6 +1,6 @@
 import json
 import glob
-from src.db import Neo4jConnection
+from db import Neo4jConnection
 
 
 def cargar_puzzle(session, data):

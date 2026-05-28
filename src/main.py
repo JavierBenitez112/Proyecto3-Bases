@@ -1,10 +1,10 @@
-from src.schema import aplicar_schema
-from src.loader import cargar_todos
-from src.missing import marcar_faltante, restaurar_pieza, reset_todas
-from src.solver import (armar_rompecabezas, obtener_puzzles_disponibles,
+from schema import aplicar_schema
+from loader import cargar_todos
+from missing import marcar_faltante, restaurar_pieza, reset_todas
+from solver import (armar_rompecabezas, obtener_puzzles_disponibles,
                         obtener_piezas_por_puzzle, validar_pieza_pertenece_puzzle,
                         obtener_info_puzzle)
-from src.db import Neo4jConnection
+from db import Neo4jConnection
 
 
 def menu():

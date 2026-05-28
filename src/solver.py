@@ -1,5 +1,5 @@
 from collections import deque
-from src.db import Neo4jConnection
+from db import Neo4jConnection
 
 
 def _obtener_pieza(session, pieza_id):

@@ -1,4 +1,4 @@
-from src.db import Neo4jConnection
+from db import Neo4jConnection
 
 CONSTRAINTS = [
     "CREATE CONSTRAINT puzzle_id IF NOT EXISTS FOR (p:Puzzle) REQUIRE p.id IS UNIQUE",

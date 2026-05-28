@@ -1,4 +1,4 @@
-from src.db import Neo4jConnection
+from db import Neo4jConnection
 
 
 def marcar_faltante(pieza_id):
