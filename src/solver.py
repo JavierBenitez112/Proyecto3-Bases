@@ -1,13 +1,32 @@
 from collections import deque
 from src.db import Neo4jConnection
 
+# NOTA SOBRE EL MODELO:
+# Los campos Puzzle.tipo, Puzzle.marca, Puzzle.material, Puzzle.tema son DESCRIPTIVOS
+# (metadatos). El algoritmo BFS no los consulta para decidir qué hacer.
+# Esto es una fortaleza del diseño: un único BFS resuelve puzzles LIBRE, BANDEJA y GRID
+# sin ramificación. Los campos sirven para: documentación, filtros de consulta y validación.
+
+
+def _nombre_pieza(p):
+    """Nombre legible para la pieza, tenga o no número.
+
+    Prioridad: numero etiqueta -> coordenadas (fila,columna) -> descripcion
+    """
+    if p.get('numero') is not None:
+        return f"#{p['numero']}"
+    if p.get('fila') is not None and p.get('columna') is not None:
+        return f"({p['fila']},{p['columna']})"
+    return f"'{p['descripcion']}'"
+
 
 def _obtener_pieza(session, pieza_id):
     return session.run("""
         MATCH (p:Pieza {id:$id})
         RETURN p.id AS id, p.numero_etiqueta AS numero,
                p.descripcion_visual AS descripcion,
-               p.disponible AS disponible, p.cluster_id AS cluster_id
+               p.disponible AS disponible, p.fila AS fila,
+               p.columna AS columna
     """, id=pieza_id).single()
 
 
@@ -96,6 +115,27 @@ def obtener_info_puzzle(puzzle_id):
         conn.close()
 
 
+def listar_clusters(puzzle_id):
+    """Lista los clusters de un puzzle para elegir piezas iniciales.
+
+    Nota: El BFS solo arma el cluster de la pieza inicial, así que para
+    puzzles multi-cluster hay que ejecutar el algoritmo una vez por cluster.
+    """
+    conn = Neo4jConnection()
+    try:
+        with conn.session() as s:
+            rows = s.run("""
+                MATCH (c:Cluster)-[:PERTENECE_A]->(p:Puzzle {id:$pid})
+                OPTIONAL MATCH (c)<-[:PERTENECE_A]-(pz:Pieza)
+                RETURN c.id AS cluster, c.nombre_cluster AS nombre,
+                       count(pz) AS piezas
+                ORDER BY c.id
+            """, pid=puzzle_id).data()
+            return rows
+    finally:
+        conn.close()
+
+
 def armar_rompecabezas(pieza_inicial_id):
     conn = Neo4jConnection()
     pasos, advertencias, visitados = [], [], set()
@@ -115,43 +155,49 @@ def armar_rompecabezas(pieza_inicial_id):
 
         paso = 1
         while cola:
-            pid, origen_num, desde, hacia = cola.popleft()
+            pid, ancla_origen, desde, hacia = cola.popleft()
             if pid in visitados:
                 continue
             visitados.add(pid)
             pieza = _obtener_pieza(s, pid)
 
             if not pieza['disponible']:
-                adv = (f"Paso {paso}: Pieza #{pieza['numero']} "
+                nombre_pieza = _nombre_pieza(pieza)
+                adv = (f"Paso {paso}: Pieza {nombre_pieza} "
                        f"({pieza['descripcion']}) -- FALTANTE")
                 advertencias.append(adv)
-                print(f"\n[ADVERTENCIA] La pieza #{pieza['numero']} "
+                print(f"\n[ADVERTENCIA] La pieza {nombre_pieza} "
                       f"({pieza['descripcion']}) esta FALTANTE. "
                       f"Se continua con el resto del armado.")
-                if origen_num:
+                if ancla_origen:
                     print(f"\n  Paso {paso}: [FALTANTE] Aqui iria la pieza "
-                          f"#{pieza['numero']} -- {pieza['descripcion']}")
+                          f"{nombre_pieza} -- {pieza['descripcion']}")
                     print(f"           -> Deberia encajar en: {hacia} "
-                          f"de la pieza #{origen_num}")
+                          f"de la pieza {ancla_origen}")
                 else:
                     print(f"\n  Paso {paso}: [FALTANTE] La pieza inicial "
-                          f"#{pieza['numero']} no esta disponible.")
+                          f"{nombre_pieza} no esta disponible.")
             else:
-                if origen_num is None:
-                    print(f"\n  Paso {paso}: [INICIO] Toma la pieza "
-                          f"#{pieza['numero']}")
+                nombre_pieza = _nombre_pieza(pieza)
+                if ancla_origen is None:
+                    print(f"\n  Paso {paso}: [INICIO] Toma la pieza {nombre_pieza}")
                     print(f"             ({pieza['descripcion']}) -- colócala como base.")
                 else:
-                    print(f"\n  Paso {paso}: [PIEZA] Toma la pieza #{pieza['numero']}")
+                    print(f"\n  Paso {paso}: [PIEZA] Toma la pieza {nombre_pieza}")
                     print(f"             ({pieza['descripcion']})")
                     print(f"             -> Tomala por: {desde}")
-                    print(f"             -> Encájala en: {hacia} de la pieza #{origen_num}")
+                    print(f"             -> Encájala en: {hacia} de la pieza {ancla_origen}")
 
             paso += 1
 
+            # Construir etiqueta de ancla con marca de FALTANTE si aplica
+            ancla = _nombre_pieza(pieza)
+            if not pieza['disponible']:
+                ancla += " (FALTANTE)"
+
             for v in _obtener_vecinos(s, pid):
                 if v['id'] not in visitados:
-                    cola.append((v['id'], pieza['numero'], v['desde'], v['hacia']))
+                    cola.append((v['id'], ancla, v['desde'], v['hacia']))
 
         print("\n" + "="*55)
         if advertencias:

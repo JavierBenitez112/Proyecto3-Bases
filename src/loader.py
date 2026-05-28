@@ -17,7 +17,7 @@ def cargar_puzzle(session, data):
     for cluster in data['clusters']:
         session.run("""
             MERGE (c:Cluster {id:$id})
-            SET c.puzzle_id=$puzzle_id, c.nombre_cluster=$nombre_cluster,
+            SET c.nombre_cluster=$nombre_cluster,
                 c.total_piezas=$total_piezas
             WITH c
             MATCH (p:Puzzle {id:$puzzle_id})
@@ -29,8 +29,7 @@ def cargar_puzzle(session, data):
         for pieza in cluster['piezas']:
             session.run("""
                 MERGE (pz:Pieza {id:$id})
-                SET pz.cluster_id=$cluster_id,
-                    pz.numero_etiqueta=$numero_etiqueta,
+                SET pz.numero_etiqueta=$numero_etiqueta,
                     pz.descripcion_visual=$descripcion_visual,
                     pz.disponible=$disponible,
                     pz.fila=$fila, pz.columna=$columna
@@ -44,16 +43,14 @@ def cargar_puzzle(session, data):
             continue
         session.run("""
             MATCH (a:Pieza {id:$origen}), (b:Pieza {id:$destino})
-            MERGE (a)-[:CONECTA_CON {
-                descripcion_desde:$desc_desde,
-                descripcion_hacia:$desc_hacia,
-                tipo_ensamble:$tipo
-            }]->(b)
-            MERGE (b)-[:CONECTA_CON {
-                descripcion_desde:$desc_hacia,
-                descripcion_hacia:$desc_desde,
-                tipo_ensamble:$tipo
-            }]->(a)
+            MERGE (a)-[r1:CONECTA_CON]->(b)
+            SET r1.descripcion_desde = $desc_desde,
+                r1.descripcion_hacia = $desc_hacia,
+                r1.tipo_ensamble = $tipo
+            MERGE (b)-[r2:CONECTA_CON]->(a)
+            SET r2.descripcion_desde = $desc_hacia,
+                r2.descripcion_hacia = $desc_desde,
+                r2.tipo_ensamble = $tipo
         """, origen=conn['origen'], destino=conn['destino'],
              desc_desde=conn['desc_desde'], desc_hacia=conn['desc_hacia'],
              tipo=conn['tipo'])
